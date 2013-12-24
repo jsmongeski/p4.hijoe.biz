@@ -1,0 +1,70 @@
+
+/*-------------------------------------------------------------------------------------------------
+Layout
+-------------------------------------------------------------------------------------------------*/
+
+h1 {	
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+   font-style:italic;
+   color:Black;
+	#text-align:center;
+	font-size:30px;
+	margin-top:25px;
+	margin-bottom:25px;
+}
+
+form {	
+	#text-align:center;
+	#margin-left:100px;
+   #text-indent:50px;
+}
+
+
+#label {
+#   position:relative;
+##    display: inline-block;
+##    top:-30px;
+#    width: 0px;
+#
+#}
+
+input[type=text] {
+
+	font-size:16px;
+   outline-width:thick;
+}
+
+
+#gomez {
+   width:120px ;
+   height:80px;
+}
+
+#dataTable {
+   #margin: 0 auto;
+   
+	margin-left:0px;
+	margin-right:auto;
+   table-layout: fixed;
+   width:"100%" ;
+   width:"1000px"; 
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+   text-align:"left";
+   float: "left";
+}
+
+
+#tblcolhead {
+background-color:lime;
+}
+#tblcoladd {
+background-color:ivory;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Buttons
+-------------------------------------------------------------------------------------------------*/
+input[type=button] {
+  font: bold 11px/1 "Trebuchet MS", Helvetica, sans-serif;
+  width: 75;
+}

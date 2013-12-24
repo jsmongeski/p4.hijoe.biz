@@ -1,0 +1,166 @@
+
+/*-------------------------------------------------------------------------------------------------
+Layout
+-------------------------------------------------------------------------------------------------*/
+
+#h1 {	
+#font-family: "Trebuchet MS", Helvetica, sans-serif;
+#font-style:italic;
+#color:Black;
+##text-align:center;
+#font-size:30px;
+#margin-top:25px;
+#margin-bottom:25px;
+#}
+
+h1 {	
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+   font-style:italic;
+   color:Black;
+	text-align:left;
+	font-size:40px;
+	margin-top:25px;
+	margin-bottom:25px;
+}
+
+h2
+{
+   font-family:"Comic Sans MS", cursive, sans-serif;
+   font-size:20px;
+}
+
+form {	
+	#text-align:center;
+	#margin-left:100px;
+   #text-indent:50px;
+}
+
+
+#label {
+#   position:relative;
+##    display: inline-block;
+##    top:-30px;
+#    width: 0px;
+#
+#}
+
+input[type=text] {
+
+	font-size:16px;
+   outline-width:thick;
+}
+
+
+#gomez {
+   width:120px ;
+   height:80px;
+}
+
+#dataTable {
+   #margin: 0 auto;
+   
+	margin-left:0px;
+	margin-right:auto;
+   table-layout: fixed;
+   width:"100%" ;
+   width:"1000px"; 
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+   text-align:"left";
+   float: "left";
+}
+
+
+#tblcolhead {
+background-color:lime;
+}
+#tblcoladd {
+background-color:ivory;
+}
+
+/*-------------------------------------------------------------------------------------------------
+Buttons
+-------------------------------------------------------------------------------------------------*/
+input[type=button] {
+  font: bold 11px/1 "Trebuchet MS", Helvetica, sans-serif;
+  width: 75;
+}
+
+
+/* style.css - a simple style sheet */
+
+
+
+body {
+    padding-left: 5em;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    color: purple;
+}
+
+p
+{
+   font-family:"Comic Sans MS", cursive, sans-serif;
+   font-size:12;
+}
+
+#dollars {
+   width:200 ;
+   height:100px;
+}
+
+
+
+ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+}
+
+li
+{
+#display:inline;
+#font-size:20px;
+#float:left;
+}
+
+a
+{
+text-decoration: none;
+}
+
+li a
+{
+text-decoration: none;
+}
+
+
+/*-------------------------------------------------------------------------------------------------
+Layout
+-------------------------------------------------------------------------------------------------*/
+
+
+form {	
+	text-align:left;
+}
+
+input[type=text] {
+
+	font-size:16px;
+   outline-width:thick;
+}
+
+
+
+#dataTable {
+#	margin-left:250px;
+#   table-layout: fixed;
+#   width:"100%" 
+#   width:"1000px" 
+#	font-family: "Trebuchet MS", Helvetica, sans-serif;
+#   #text-align:"left"
+}
+
+
+
+
+

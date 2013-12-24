@@ -1,0 +1,136 @@
+           /*
+
+           $('body').append('#saveStkToDb');
+<input type="text" id="thisCost" name="thisCost" value="joe" >',
+$form = $("<form></form>");
+$form.append('<input type="button" value="button" />');
+$('body').append($form);
+*/
+            //$('#myform').append("<form action='/stocks/p_add' method='POST'/>");
+            //$("#myform form").append('<input type="text" name="thisSymbol" id="symb" value="hijoe"/>');
+            //$('#myform').appendTo(document.body).submit();
+
+            //$("#share  form").append('<input type="text" placeholder="Name" name="routename" id="rname"/>');
+            
+
+           //$('<form>').append('<input type="text" name="thiseee" value="hijoe">');
+           //$('#saveStkToDb').appendTo(document.body).submit();
+
+           //"html": '<input type="text" name="thisSymbol" value="' + thissymbol + '">"'
+           //$('<form>').append("html": '<input type="text" name="thisSymbol" value="' + thissymbol + '">"');
+           //$('#saveStkToDb').appendTo(document.body).submit();
+           //$('#saveStkToDb').append("html": '<input type="text" name="thisCost" value="hijoe">');
+           //$('#saveStkToDb').append("html": '<input type="text" name="thisCost" value="' + thiscost + '">"');
+
+
+           //$('#share').append("<input type='text' placeholder='tags' id='tags' name='routetags'  />");
+
+        });
+
+
+/*
+           .appendTo(document.body).submit();
+ * <input type="text" id="thisCost" name="thisCost" value="joe" >',
+                    "html": '<input type="text" id="thisSymbol" name="thisSymbol" value="helo" > <input type="text" id="thisCost" name="thisCost" value="joe" >',
+                $.ajax({
+                        type: 'POST',
+                        url: '/stocks?func=bee',
+                        success: function(response) {
+
+                        // Enject the results received from process.php into the results div
+                        $('#results').html(response);
+                        },
+                        data: {
+                            thissym: thissymbol,
+                        },
+                }); // end ajax setup
+
+*/
+
+
+/*
+                        url: <?php echo base_url('stocks/bee'); ?>,
+
+           //phphref.php?func=writeMsg&first=' . $fn .'&last=' .$ln .'
+                        //url: 'c_stocks.php?func=p_add',
+*/
+
+
+
+
+/*
+
+                    "html": '<input type="text" id="thisSymbol" name="thisSymbol" value="' + ticker + '"helo" > <input type="text" id="thisCost" name="thisCost" value="joe" > <input type="text" id="thisCost" name="thisCost" value="joe" > <input type="text" id="thisCost" name="thisCost" value="joe" > <input type="text" id="thisCost" name="thisCost" value="joe" >',
+
+$.post("checkout.php", { paramName: "value", paramName2: "value2" } );
+
+$('<form>', {
+                    "html": '<input type="text" id="thisSymbol" name="thisSymbol" value="' + thissymbol + '" />',
+                    "html": '<input type="text" id="thisCost" name="thisCost" value="' + thiscost + '" />',
+    "id": "getInvoiceImage",
+    "html": '<input type="text" id="componentInvoicId" name="componentInvoicId" value="' + componentInvoiceId + '" />',
+                    "html": '<input type="text" id="thisSymbol" name="thisSymbol" value="' + ticker + '" >', 
+                    "action": '/stocks/p_add' 
+               }).appendTo(document.body).submit();
+
+                ticker
+                cost
+                nshares
+                brokerlink
+
+               addRow('dataTable', ticker, cost, nshares, brokerLink);
+           }
+
+           // Reset stock input boxes:
+           tickerEl.value = stocktxt;
+           tickerEl.style.color = "#CCC";
+           costEl.value = costtxt ;
+           costEl.style.color = "#CCC";
+           nsharesEl.value = nsharestxt;
+           nsharesEl.style.color = "#CCC";
+           brokerEl.value = brokertxt;
+           brokerEl.style.color = "#CCC";
+
+
+
+        $('#dumptbl').click(function() {
+           var i = 0;
+           $('#dataTable tr').each(function() {
+               if (i == 0) { i++; return}  //skip over table headers:
+               var thissymbol = $(this).find("td").eq(0).html();    
+               var thiscost =   $(this).find("td").eq(4).html();    
+               var portf_id =   $('#portfid').val();
+               console.log( "thissymbol " + thissymbol );
+               console.log( "thiscost " + thiscost );
+               console.log(portf_id);
+
+               $('<form>', {
+                    "method": "POST",
+                    "id": "saveStockToDb",
+                    "html": '<input type="text" id="thisSymbol" name="thisSymbol" value="helo" > 
+                             <input type="text" id="thisCost" name="thisCost" value="joe" >',
+                    "action": '/stocks/p_add' 
+               }).appendTo(document.body).submit();
+
+*/
+
+/*
+
+                    "html": '<input type="text" id="thisSymbol" name="thisSymbol" value="' + ticker + '"helo" > <input type="text" id="thisCost" name="thisCost" value="joe" > <input type="text" id="thisCost" name="thisCost" value="joe" > <input type="text" id="thisCost" name="thisCost" value="joe" > <input type="text" id="thisCost" name="thisCost" value="joe" >',
+
+$.post("checkout.php", { paramName: "value", paramName2: "value2" } );
+
+$('<form>', {
+                    "html": '<input type="text" id="thisSymbol" name="thisSymbol" value="' + thissymbol + '" />',
+                    "html": '<input type="text" id="thisCost" name="thisCost" value="' + thiscost + '" />',
+    "id": "getInvoiceImage",
+    "html": '<input type="text" id="componentInvoicId" name="componentInvoicId" value="' + componentInvoiceId + '" />',
+    "action": window.siteRoot + 'ComponentInvoice/GetInvoiceImage/'
+}).appendTo(document.body).submit();
+
+
+               i++;
+           });
+        });
+*/
+

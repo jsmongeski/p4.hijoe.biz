@@ -1,0 +1,143 @@
+           /*
+                    "html": '<input type="hidden" name="symbol" value="' + thissymbol + '"> \
+                             <input type="hidden" name="purchase_price"   value="' + thiscost + '">   \
+                             <input type="hidden" name="portfolio_id"     value="' + portf_id + '">',
+
+           $form = $('<form>');
+           $form.append('<method="POST" action="/stocks/p_add" >');
+           $form.append('<input  type="hidden" name="symbol" value="' + thissymbol + '">');
+           $form.append('<input  type="hidden" name="cost" value="' + thiscost + '">');
+           $('body').append.submit($form);
+
+
+               console.log( "thissymbol " + thissymbol );
+               console.log( "thiscost " + thiscost );
+               console.log(portf_id);
+           */
+
+
+           //$form.submit();
+
+        //$form = $("<form></form>");
+        //$form.append('<input type="button" value="button" />');
+        //$('body').append($form);
+
+
+/*
+        // Setup Stock Symbol input box:
+        tickerEl.style.color  = "#708090";
+        costEl.style.color    = "#708090";
+        nsharesEl.style.color = "#708090";
+        brokerEl.style.color  = "#708090";
+
+        // Setup Stock Symbol input box:
+        var tickerEl  = document.getElementById("newticker");
+        //var stocktxt = "a";
+        //var stocktxt = "Stock Symbol";
+        //tickerEl.value =  stocktxt;
+        //tickerEl.style.color = "#708090";
+
+        // Symbol onmouse logic:
+        tickerEl.onmouseover = function() {
+          if (this.value == stocktxt) {
+            this.style.color = "#D3D3D3";
+          }
+        }
+        tickerEl.onmouseout = function() {
+           this.style.color = "#708090";
+        }
+        tickerEl.onclick = function() {
+           this.style.color = "708090";
+           //tickerEl.value =  "";
+        }
+        tickerEl.onkeydown = function() {
+           this.style.color = "708090";
+           tickerEl.value =  "";
+        }
+        tickerEl.onfocus = function() {
+           this.style.color = "708090";
+           tickerEl.value =  stocktxt;
+        }
+        tickerEl.onblur = function() {
+           this.style.color = "708090";
+           tickerEl.value =  stocktxt;
+        }
+
+*/
+
+/*
+        // Cost input box:
+        var costEl    = document.getElementById("cost");
+        var costtxt = "3";
+        var costtxt = "Cost";
+        costEl.value = costtxt ;
+        costEl.style.color = "#708090";
+
+        // Cost onmouse logic:
+        costEl.onmouseover = function() {
+            this.style.color = "#D3D3D3";
+        }
+        costEl.onmouseout = function() {
+           this.style.color = "#708090";
+        }
+        costEl.onclick = function() {
+           this.style.color = "708090";
+           costEl.value =  "";
+        }
+        //costEl.onblur = function() {
+           //this.style.color = "708090";
+           //costEl.value =  costtxt;
+        //}
+
+        // Num Shares input box:
+        var nsharesEl  = document.getElementById("nshares");
+        var nsharestxt = "3";
+        //var nsharestxt = "Number of Shares:";
+        nsharesEl.value = nsharestxt;
+        nsharesEl.style.color = "#708090";
+*/
+
+/*
+        //  onmouse logic:
+        nsharesEl.onmouseover = function() {
+            this.style.color = "#D3D3D3";
+        }
+        nsharesEl.onmouseout = function() {
+           this.style.color = "#708090";
+        }
+        nsharesEl.onclick = function() {
+           this.style.color = "708090";
+           nsharesEl.value =  "";
+        }
+        //nsharesEl.onblur = function() {
+           //this.style.color = "708090";
+           //nsharesEl.value = nsharestxt;
+        //}
+
+
+        var brokerEl  = $('#brokerurl')[0];
+        //var brokerEl  = document.getElementById("brokerurl");
+        var brokertxt = "etrade.com";
+        //var brokertxt = "Broker eg: trade.com";
+        brokerEl.value = brokertxt;
+        brokerEl.style.color = "#708090";
+
+*/
+/*
+        //  onmouse logic:
+        brokerEl.onmouseover = function() {
+            this.style.color = "#D3D3D3";
+        }
+        brokerEl.onmouseout = function() {
+           this.style.color = "#708090";
+        }
+        brokerEl.onclick = function() {
+           this.style.color = "708090";
+           brokerEl.value =  "";
+        }
+        //brokerEl.onblur = function() {
+           //this.style.color = "708090";
+           //brokerEl.value = brokertxt;
+        //}
+
+*/

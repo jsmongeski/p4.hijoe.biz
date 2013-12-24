@@ -1,0 +1,45 @@
+
+
+
+<?php if(isset($error)): ?>
+
+   <?php if(!strcmp($error, "blank"))  : ?>
+           <p>Please enter a portfolio name</p>
+
+   <?php elseif(!strcmp($error, "bademail")) : ?>
+           <p>Invalid email address, please click "Create Portfolio" and try again.</p>
+
+    <?php elseif(!strcmp($error, "error")) : ?>
+            Portfolio already exists! Please try again: <a = "createpf" href='/portfolios/createpf'>Signup!</a>
+
+    <?php else : ?>
+            Add stocks to the portfolio  <a = "createpf" href='/stocks/add/<?=$error?>'>Add Stocks!</a>
+    <?php endif; ?>
+
+<?php else : ?>
+
+	     <?php if(isset($client_files_body)) echo $client_files_body; ?>
+        <p>
+            Here are the portfolios:            
+        </p>
+        <?=$portfolios?>
+
+        <!--$portfolios is 
+        <input id="portfList" type="hidden" value="<?=$portfolios?>">
+         -->
+<?php endif; ?>
+
+
+<!--
+      <form method='POST' action='/portfolios/p_createpf'>
+   
+        <input type='text' placeholder="Portfolio Name" name='portfolio_name' id="portfolio_name">
+        <input type='text' placeholder="Broker Url" name='broker_url' id='brokerurl'>
+        <input type='text' placeholder="Email Address" name='email' id='email'>
+
+        <input type='submit' value='Submit'>
+   
+      </form>
+
+-->
+

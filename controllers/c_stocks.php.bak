@@ -1,0 +1,256 @@
+<?php
+
+#echo 'got into c_stocks!';
+#if(isset($_GET['func'])) {
+#if($_GET['func']=="bee") {
+#   bee();
+#}
+#}
+
+class stocks_controller extends base_controller {
+
+    public function __construct() {
+        parent::__construct();
+
+    }
+
+    public function add($portfolio_id) {
+
+        
+        # Setup view
+        $this->template->content = View::instance('v_stocks_add');
+        $this->template->title   = "Add Stocks";
+        $this->template->content->portf_id   =  $portfolio_id;
+        
+        # Create an array of 1 or many client files to be included before the closing </body> tag
+        $client_files_body = Array(
+                "/js/portfolioTbl.js",
+        );
+        # Use load_client_files to generate the links from the above array
+        $this->template->client_files_body = Utils::load_client_files($client_files_body);  
+
+        # Render template
+        echo $this->template;
+
+    }
+
+    public function p_add($update) {
+	   	   
+            if( isset($update)) {
+               echo "update is " . $update;
+            }
+	     # This function will add a row of the html stock table to a row in the db stock table:
+       
+        
+        /* 
+        # Need to check if stock ids already exist in db so we don't overwrite existing stocks
+	     echo("stkidlist: " .$_POST['stkidlist']); 
+
+        echo "<br>";
+        $pieces = explode(" ", $_POST['stkidlist']);
+
+        echo $pieces[0]; // piece1
+        echo "<br>";
+        echo $pieces[1]; // piece2
+        echo "<br>";
+
+	     foreach($pieces as $key => $value) {
+
+           $stkidkey = $value;
+	        echo("stkidkey: " . $stkidkey);
+           echo "<br>";
+
+           $wherestr =  "WHERE stock_id =" . $stkidkey ;
+	        echo("wherestr : " . $wherestr );
+           echo "<br>";
+
+           $q = "SELECT symbol FROM stocks " . $wherestr;
+           $symbol = DB::instance(DB_NAME)->select_field($q);
+	        echo("symbol from stkid: " . $symbol); 
+           echo "<br>";
+        }
+
+        */ 
+
+	     echo '<br>';
+	     echo '<pre>';
+	     print_r($_POST); 
+	     echo '</pre>';
+
+        $i = 0;
+	     foreach($_POST as $key => $value) {
+            
+            if ( $i == 2) {
+
+               $values[$i] = $value;
+               $stockArr['symbol']  = $values[0];
+               $stockArr['purchase_price']  = $values[1];
+               $stockArr['portfolio_id'] = $values[2];
+               #$portfolio_id = $values[2];
+
+               if($update == 0) {
+                  $stockArr['created']  = Time::now();
+                  $stockArr['modified'] = Time::now();
+                  echo "DB::instance(DB_NAME)->insert...";
+                  DB::instance(DB_NAME)->insert('stocks', $stockArr);
+
+               } else {
+	#DB::instance(DB_NAME)->delete('users', "WHERE email = 'sam@whitehouse.gov'");
+                       
+                  $wherestr =  "WHERE portfolio_id = " . $portfolio_id;
+                  echo "wherestr: " . $wherestr;
+                	DB::instance(DB_NAME)->delete('stocks', $wherestr);
+
+                  $stockArr['created']  = Time::now();
+                  $stockArr['modified'] = Time::now();
+                  DB::instance(DB_NAME)->insert('stocks', $stockArr);
+                       
+                  #DB::instance(DB_NAME)->update("stocks", $stockArr, $wherestr);
+               }
+               
+               $i = 0;
+
+            } else {
+                $values[$i] = $value;
+                $i++;
+                continue;
+            }
+        }
+
+        #Router::redirect("/");
+    }
+
+    public function p_pfget($pfname) {
+
+       #echo "Got to pf_get with pf: " . $pfname;
+
+       # Setup view
+       $this->template->content = View::instance('v_stocks_add');
+       $this->template->title   = "Get Stocks";
+        
+       # Create an array of 1 or many client files to be included before the closing </body> tag
+       $client_files_body = Array(
+                "/js/portfolioTbl.js",
+       );
+       # Use load_client_files to generate the links from the above array
+       $this->template->client_files_body = Utils::load_client_files($client_files_body);  
+
+
+       $q = "SELECT portfolio_id FROM portfolios WHERE portfolio_name = '$pfname'";
+       $pfid = DB::instance(DB_NAME)->select_field($q);
+       $this->template->content->portf_id   =  $pfid ;
+       #echo "<br>Got to pfid of: " . $pfid; 
+
+       $q = "SELECT * FROM stocks WHERE portfolio_id = '$pfid'";
+       $symbols = DB::instance(DB_NAME)->select_array($q, 'stock_id');
+       //echo "<br>Got symbol : " . $pfid;
+       
+       #echo "symbols list is: <br>";
+       #echo '<pre>';
+       #print_r($symbols);
+       #echo '</pre>';   
+
+
+       $restorelist = "";
+       $symbollist = "";
+       $pricelist = "";
+       $stkidlist = "";
+
+       foreach($symbols as $row => $innerArray) {
+           foreach($innerArray as $innerRow => $value) {
+              if ($innerRow == "symbol" ) {
+                  $restorelist = $restorelist . $value . " ";
+              }
+              if ($innerRow == "purchase_price" ) {
+                  $restorelist = $restorelist . $value . " ";
+              }
+              if ($innerRow == "stock_id" ) {
+                  $stkidlist = $stkidlist . $value . " ";
+              }
+           }     
+       }     
+
+       echo "restorelist : " .  $restorelist ;
+       $this->template->content->restorelist = $restorelist ;
+       $this->template->content->stkidlist = $stkidlist ;
+
+       #echo "pricelist : " .  $pricelist ;
+       #$this->template->content->pricelist = $pricelist ;
+ 
+       # Render template
+       echo $this->template;
+    }
+
+
+    public function index() {
+
+       # Set up the View
+       $this->template->content = View::instance('v_stocks_index');
+       $this->template->title   = "All Posts";
+   
+       # Query
+       $q = 'SELECT 
+               stocks.content,
+               stocks.created,
+               stocks.user_id AS stock_user_id,
+               users_users.user_id AS follower_id,
+               users.first_name,
+               users.last_name
+           FROM stocks
+           INNER JOIN users_users 
+               ON stocks.user_id = users_users.user_id_followed
+           INNER JOIN users 
+               ON stocks.user_id = users.user_id
+           WHERE users_users.user_id = '.$this->user->user_id;
+   
+       # Run the query, store the results in the variable $stocks
+       $stocks = DB::instance(DB_NAME)->select_rows($q);
+   
+       # Pass data to the View
+       $this->template->content->stocks = $stocks;
+   
+       # Render the View
+       echo $this->template;
+
+   }
+
+    public function stocks() {
+
+       # Set up the View
+       $this->template->content = View::instance("v_stocks_users");
+       $this->template->title   = "Stocks";
+   
+       # Build the query to get all the users
+       $q = "SELECT *
+           FROM users";
+   
+       # Execute the query to get all the users. 
+       # Store the result array in the variable $users
+       $users = DB::instance(DB_NAME)->select_rows($q);
+   
+       # Build the query to figure out what connections does this user already have? 
+       # I.e. who are they following
+       $q = "SELECT * 
+           FROM users_users
+           WHERE user_id = ".$this->user->user_id;
+   
+       # Execute this query with the select_array method
+       # select_array will return our results in an array and use the "users_id_followed" field as the index.
+       # This will come in handy when we get to the view
+       # Store our results (an array) in the variable $connections
+       $connections = DB::instance(DB_NAME)->select_array($q, 'user_id_followed');
+   
+       # Pass data (users and connections) to the view
+       $this->template->content->users       = $users;
+       $this->template->content->connections = $connections;
+   
+       # Render the view
+       echo $this->template;
+    }
+
+}
+        # SELECT *
+        # FROM stocks
+        # INNER JOIN portfolios 
+        #    ON stocks.portfolio_id = portfolios.portfolio_id
+?>
