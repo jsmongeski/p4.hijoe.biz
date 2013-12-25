@@ -68,7 +68,7 @@ class stocks_controller extends base_controller {
                } else {
 
                    # Updating existing stocks for this portfolio, skip over those that exist,
-                   # insert any new stocks into table:
+                   # insert new stocks into table:
                     
                    $wherestr =  "WHERE symbol = '" . mysql_real_escape_string($stockArr['symbol']). "'" . "AND portfolio_id ='" .  mysql_real_escape_string($stockArr['portfolio_id']). "'"; 
 
