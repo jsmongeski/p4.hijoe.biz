@@ -69,8 +69,14 @@ class stocks_controller extends base_controller {
 
                    # Updating existing stocks for this portfolio, skip over those that exist,
                    # insert any new stocks into table:
+
+                   # insert any new stocks into table:
+                   $thissymbol = $stockArr['symbol'];
+                   $thisportid = $stockArr['portfolio_id'];
+
+                   $wherestr =  "WHERE symbol = '" . $thissymbol. "'" . "AND portfolio_id = '" .$thisportid . "'";
                     
-                   $wherestr =  "WHERE symbol = '" . mysql_real_escape_string($stockArr['symbol']). "'" . "AND portfolio_id ='" .  mysql_real_escape_string($stockArr['portfolio_id']). "'"; 
+                   #$wherestr =  "WHERE symbol = '" . mysql_real_escape_string($stockArr['symbol']). "'" . "AND portfolio_id ='" .  mysql_real_escape_string($stockArr['portfolio_id']). "'"; 
 
                    
                    $q = "SELECT symbol FROM stocks ".$wherestr;
@@ -152,12 +158,16 @@ class stocks_controller extends base_controller {
        
 	     print_r($_POST); 
 
-       $q = "DELETE FROM stocks
-          WHERE symbol = '" . mysql_real_escape_string($_POST['symbol']). "'";
-       
+       #$q = "DELETE FROM stocks
+       #   WHERE symbol = '" . mysql_real_escape_string($_POST['symbol']). "'";
+       #DB::instance(DB_NAME)->query($q);
 
-       DB::instance(DB_NAME)->query($q);
+        $thissymbol = $_POST['symbol'];
+        $q = "DELETE FROM stocks
+          WHERE symbol = '" . $thissymbol . "'";
 
+        DB::instance(DB_NAME)->query($q);
+        
     }# deletestock
 }
 ?>
